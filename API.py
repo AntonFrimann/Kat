@@ -1,5 +1,7 @@
 import requests, random
 
+urlList = []
+
 def getData():
     response = requests.get('https://api.thecatapi.com/v1/images/search?limit=10')
 
@@ -19,7 +21,11 @@ def getUrls():
     return urls
 
 def getUrl():
-    return random.choice(getUrls())
+    global urlList
+    if len(urlList) < 1:
+        urlList = getUrls()
+    url = urlList.pop(random.randint(0, len(urlList)))
+    return url
 
 if __name__ == "__main__":
     print(getData())
