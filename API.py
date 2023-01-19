@@ -1,4 +1,4 @@
-import requests
+import requests, random
 
 def getData():
     response = requests.get('https://api.thecatapi.com/v1/images/search?limit=10')
@@ -17,6 +17,9 @@ def getUrls():
     for cat in data:
         urls.append(cat['url'])
     return urls
+
+def getUrl():
+    return random.choice(getUrls())
 
 if __name__ == "__main__":
     print(getData())
