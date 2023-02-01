@@ -27,5 +27,3 @@ def getUrl():
     url = urlList.pop(random.randint(0, len(urlList)))
     return url
 
-if __name__ == "__main__":
-    print(getData())
